@@ -53,7 +53,7 @@
 <body>
 <div sec:authorize="isAuthenticated()">
     <!--    <span sec:authentication="name"></span>-->
-    <h1 class="authorized text center" id="authorized"> Welcome, <span sec:authentication="name"></span></h1>
+    <h1 class="authorized text center" id="authorized" > Welcome, <span sec:authentication="name"></span></h1>
 </div>
 <h1>User Profile</h1>
 <img src="profile_picture.jpg" alt="Profile Picture" class="profile-picture">
@@ -87,8 +87,7 @@
 
 <h2>About Me</h2>
 <p>
-    Hi, I'm [Username]! I love playing games and sharing my experiences through Twitch streams. Join me on my gaming
-    adventures and let's have fun together!
+    Hi, I'm [Username]! I love playing games and sharing my experiences through Twitch streams. Join me on my gaming adventures and let's have fun together!
 </p>
 <!--Steam API will go here-->
 <h2>Liked Items</h2>
@@ -101,15 +100,15 @@
 <!--might add a discord API section here-->
 <h2>Forum</h2>
 <div class="forum-section">
-    <div th:each="user : ${users}">
-        <div th:if="${user.getRole().getId() == 3}">
-            <h2 th:text="${user.getUsername()}">user: </h2>
-            <div th:object="${post}">
-                <h3 th:text="${post.title}"></h3>
-                <p th:text="${post.body}"></p>
-            </div>
-            <!-- Add more forum posts here -->
-        </div>
+    <div class="container mt-5 text-center">
+        <h1 class="p-2">leave a comment</h1>
+        <form th:action="@{/forum/create}" method="post" th:object="${forum}">
+            <label>Title:</label>
+            <input class="m-2" type="text" th:field="*{title}"  /><br>
+            <label>Content:</label>
+            <textarea class="m-2" th:field="*{body}"></textarea><br>
+            <input type="submit" value="Submit"/>
+        </form>
     </div>
 </div>
 </body>
