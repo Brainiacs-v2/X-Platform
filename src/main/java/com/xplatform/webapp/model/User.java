@@ -1,5 +1,7 @@
 package com.xplatform.webapp.model;
 
+import com.xplatform.webapp.util.Password;
+
 public class User {
     private long id;
     private String username;
