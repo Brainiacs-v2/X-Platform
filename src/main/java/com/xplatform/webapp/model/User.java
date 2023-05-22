@@ -3,6 +3,7 @@ package com.xplatform.webapp.model;
 import com.xplatform.webapp.util.Password;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,6 +20,9 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Forum> forums = new ArrayList<>();
     public User() {}
 
     public User(String username, String email, String password) {
