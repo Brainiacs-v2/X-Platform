@@ -1,5 +1,4 @@
 package com.xplatform.webapp.model;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -21,4 +20,3 @@ public class Message {
 
     // Getters and setters
 }
-
