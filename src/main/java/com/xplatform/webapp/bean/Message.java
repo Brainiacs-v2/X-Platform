@@ -1,4 +1,4 @@
-package com.xplatform.webapp.model;
+package com.xplatform.webapp.bean;
 import jakarta.persistence.*;
 
 @Entity

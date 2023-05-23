@@ -1,4 +1,4 @@
-package com.xplatform.webapp.model;
+package com.xplatform.webapp.bean;
 
 import com.xplatform.webapp.util.Password;
 import jakarta.persistence.*;
@@ -9,13 +9,20 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table (name = "users")
 public class User {
     @Id
-    private long id;
-    private String username;
-    private String email;
-    private String password;
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column (nullable = false, length = 100, unique = true)
+    private String username;
+
+    @Column (nullable = false, length = 100, unique = true)
+    private String email;
+
+    @Column (nullable = false, length = 100)
+    private String password;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -45,6 +52,14 @@ public class User {
         this.password = password;
     }
 
+    public User(User copy){
+        id = copy.id;
+
+        username = copy.username;
+        email = copy.email;
+        password = copy.password;
+
+    }
     public long getId() {
         return id;
     }
