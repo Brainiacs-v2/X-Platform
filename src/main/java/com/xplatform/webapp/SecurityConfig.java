@@ -46,7 +46,14 @@ public class SecurityConfig {
 
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/font/**", "/viewed/**").permitAll()
+                .requestMatchers("/",
+                        "/font/**",
+                        "/viewed/**",
+                        "landing",
+                        "login",
+                        "register",
+                        "landing/landing",
+                        "crossplatform").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")

@@ -29,7 +29,11 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-//afsdfsdfadf
+
+    @GetMapping("/crossplatform")
+    public String landingPage(){
+        return "landing/landing";
+    }
 
     @GetMapping("/login")
     public String loginPage() {
@@ -43,12 +47,12 @@ public class UserController {
     }
 
     @GetMapping("/register")
-    public String registerPage(Model model) {
+    public String registerPage() {
         return "landing/register";
     }
 
     @PostMapping("/register")
-    public String reghistrationPagepost(@RequestParam("username") String username, @RequestParam("password") String password,
+    public String registrationPagePost(@RequestParam("username") String username, @RequestParam("password") String password,
     @RequestParam("email") String email                                    ) {
         userDao.save(new User(username, email, password));
         return "profile";
