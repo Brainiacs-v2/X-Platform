@@ -20,7 +20,7 @@ public class LandingController {
     //POST MAPPING
     @PostMapping("/crossplatform")
     public String crossPlatformBtn(){
-        return "landing";
+        return "index";
     }
     @PostMapping("/about")
     public String aboutBtn(){
