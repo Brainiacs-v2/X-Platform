@@ -6,19 +6,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LandingController {
     @PostMapping("/crossplatform")
-   public String handleCrossPlatform(){
+    public String handleCrossPlatform() {
         return "/landing/landing";
     }
+
     @PostMapping("/login")
-    public String handleLoginBtn(){
+    public String handleLoginBtn() {
         return "/landing/login";
     }
+
     @PostMapping("/about")
-    public String handleAboutBtn(){
+    public String handleAboutBtn() {
         return "/landing/about";
     }
+
     @PostMapping("/contact")
-    public String handleContactBtn(){
+    public String handleContactBtn() {
         return "/landing/contact";
     }
 

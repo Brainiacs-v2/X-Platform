@@ -53,7 +53,11 @@ public class SecurityConfig {
                         "login",
                         "register",
                         "landing/landing",
-                        "crossplatform").permitAll()
+                        "crossplatform",
+                        "edit-profile",
+                        "profile-create",
+                        "profile",
+                        "edit-profile?continue").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")

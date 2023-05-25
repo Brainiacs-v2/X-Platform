@@ -43,13 +43,12 @@
 
 </style>
 <body>
-<div sec:authorize="isAuthenticated()">
-    <!--    <span sec:authentication="name"></span>-->
-    <h1 class="authorized text center" id="authorized"> Welcome, <span sec:authentication="name"></span></h1>
-</div>
 <h1>User Profile</h1>
-<form th:action="@{/profile-update}" method="post" th:object="${profile}">
+<form th:action="@{/update-picture}" th:method="post">
     <img src="profile_picture.jpg" alt="Profile Picture" class="profile-picture">
+    <!-- Add input for uploading new profile picture if desired -->
+    <input type="file" name="profilePicture">
+    <input type="submit" value="Upload Picture">
 </form>
     <div id="video">
         <h2>Stream</h2>
@@ -58,7 +57,7 @@
     <h2>Top 8 Profiles</h2>
     <div class="top-8">
         <!--    Integrate user profile pictures in these spots-->
-        <form method="POST" action="/users/search">
+        <form th:method="POST" th:action="@{/seach-friends}">
             <label for="searchBar">find users:</label>
             <input type="search" id="searchBar" name="search" placeholder="search users">
         </form>
@@ -84,7 +83,7 @@
     </p>
 
     <h2>About Me</h2>
-    <form method="POST" action="/update-about-me">
+    <form th:method="POST" th:action="@{/update-ahout-me}">
         <label>Content:</label>
         <label>
             <input class="m-2" type="text" name="about-me" value="About Me">

@@ -32,6 +32,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Forum> forums = new ArrayList<>();
 
+    @OneToMany()
+    private Profile profile;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_channels",
             joinColumns = @JoinColumn(name = "user_id"),
