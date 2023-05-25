@@ -46,7 +46,7 @@
 <body>
 <h1>User Profile</h1>
 <form th:action="@{/update-picture}" th:method="post">
-    <img src="profile_picture.jpg" alt="Profile Picture" class="profile-picture">
+    <img src="" alt="Profile Picture" class="profile-picture">
     <!-- Add input for uploading new profile picture if desired -->
     <input type="file" name="profilePicture">
     <input type="submit" value="Upload Picture">
@@ -62,14 +62,14 @@
             <label for="searchBar">find users:</label>
             <input type="search" id="searchBar" name="search" placeholder="search users">
         </form>
-        <img src="friend1.jpg" alt="Friend 1">
-        <img src="friend2.jpg" alt="Friend 2">
-        <img src="friend3.jpg" alt="Friend 3">
-        <img src="friend4.jpg" alt="Friend 4">
-        <img src="friend5.jpg" alt="Friend 5">
-        <img src="friend6.jpg" alt="Friend 6">
-        <img src="friend7.jpg" alt="Friend 7">
-        <img src="friend8.jpg" alt="Friend 8">
+        <img src="" alt="Friend 1">
+        <img src="" alt="Friend 2">
+        <img src="" alt="Friend 3">
+        <img src="" alt="Friend 4">
+        <img src="" alt="Friend 5">
+        <img src="" alt="Friend 6">
+        <img src="" alt="Friend 7">
+        <img src="" alt="Friend 8">
     </div>
     <!--Spotify API will go here-->
     <h2>Recommended Music</h2>
@@ -84,11 +84,15 @@
     </p>
 
     <h2>About Me</h2>
-<form th:action="@{/about/edit}" method="post" th:object="${aboutMe}">
+<form th:action="@{/profile/edit}" th:method="post" th:object="${aboutMe}">
     <label>Title:</label>
-    <input class="m-2" type="text" th:field="*{title}"  /><br>
+    <label>
+        <input class="m-2" type="text" th:field="*{title}"  />
+    </label><br>
     <label>Content:</label>
-    <textarea class="m-2" th:field="*{body}"></textarea><br>
+    <label>
+        <textarea class="m-2" th:field="*{body}"></textarea>
+    </label><br>
     <input type="submit" value="Update"/>
 </form>
         <!--Steam API will go here-->
