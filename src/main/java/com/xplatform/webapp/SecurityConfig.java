@@ -48,6 +48,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers(
                         "/",
+                        "/error",
                         "sign-up",
                         "/font/**",
                         "/viewed/**",
