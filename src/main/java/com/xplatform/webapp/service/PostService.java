@@ -1,6 +1,6 @@
 package com.xplatform.webapp.service;
 
-import com.xplatform.webapp.bean.Post;
+import com.xplatform.webapp.bean.AboutMe;
 import com.xplatform.webapp.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public Post savePost(Post post) {
+    public AboutMe savePost(AboutMe post) {
         return postRepository.save(post);
     }
 }

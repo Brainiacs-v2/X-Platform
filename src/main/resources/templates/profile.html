@@ -62,10 +62,10 @@
 </div>
 
 <div sec:authorize="isAuthenticated()">
-    <!--    <span sec:authentication="name"></span>-->
-    <h1 class="authorized text center" id="authorized"> Welcome, <span sec:authentication="name"></span></h1>
+    <div th:if role="">
+    <h1 class="text-center"> WELCOME, <span sec:authentication="name"></span></h1>
 </div>
-<h1>User Profile</h1>
+<h4>My Page</h4>
 <img src="profile_picture.jpg" alt="Profile Picture" class="profile-picture">
 <div id="video">
     <h2>Stream</h2>

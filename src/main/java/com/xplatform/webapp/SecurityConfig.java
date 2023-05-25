@@ -57,7 +57,8 @@ public class SecurityConfig {
                         "edit-profile",
                         "profile-create",
                         "profile",
-                        "edit-profile?continue").permitAll()
+                        "about",
+                        "contact").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
