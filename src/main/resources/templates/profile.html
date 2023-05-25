@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6" lang="en">
-
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
@@ -55,18 +55,18 @@
     <form th:action="@{/logout}" th:method="post">
         <button class="btn btn-outline-dark">Logout</button>
     </form>
-</div><div>
+</div>
+<div>
     <form th:action="@{/edit-profile}" th:method="post">
         <button class="btn btn-outline-dark">Edit Profile</button>
     </form>
 </div>
 
 <div sec:authorize="isAuthenticated()">
-    <!--    <span sec:authentication="name"></span>-->
-    <h1 class="authorized text center" id="authorized"> Welcome, <span sec:authentication="name"></span></h1>
+    <h1 class="text-center"> WELCOME, <span sec:authentication="name"></span></h1>
 </div>
-<h1>User Profile</h1>
-<img src="profile_picture.jpg" alt="Profile Picture" class="profile-picture">
+<h4>My Page</h4>
+<img src="" alt="Profile Picture" class="profile-picture">
 <div id="video">
     <h2>Stream</h2>
     <!-- Add video streaming elements here -->
@@ -74,14 +74,14 @@
 <h2>Top 8 Profiles</h2>
 <div class="top-8">
     <!--    Integrate user profile pictures in these spots-->
-    <img src="friend1.jpg" alt="Friend 1">
-    <img src="friend2.jpg" alt="Friend 2">
-    <img src="friend3.jpg" alt="Friend 3">
-    <img src="friend4.jpg" alt="Friend 4">
-    <img src="friend5.jpg" alt="Friend 5">
-    <img src="friend6.jpg" alt="Friend 6">
-    <img src="friend7.jpg" alt="Friend 7">
-    <img src="friend8.jpg" alt="Friend 8">
+    <img src="" alt="Friend 1">
+    <img src="" alt="Friend 2">
+    <img src="" alt="Friend 3">
+    <img src="" alt="Friend 4">
+    <img src="" alt="Friend 5">
+    <img src="" alt="Friend 6">
+    <img src="" alt="Friend 7">
+    <img src="" alt="Friend 8">
 </div>
 <!--Spotify API will go here-->
 <h2>Recommended Music</h2>
@@ -96,10 +96,12 @@
 </p>
 
 <h2>About Me</h2>
-<p>
-    Hi, I'm [Username]! I love playing games and sharing my experiences through Twitch streams. Join me on my gaming
-    adventures and let's have fun together!
-</p>
+<div th:each="post: ${aboutMe}">
+    <p th:text="${post.user.username}"></p>
+    <h3 th:text="${post.title}"></h3>
+    <p th:text="${post.body}"></p>
+    <hr>
+</div>
 <!--Steam API will go here-->
 <h2>Liked Items</h2>
 <ul class="liked-items">
@@ -111,14 +113,11 @@
 <!--might add a discord API section here-->
 <h2>Forum</h2>
 <div class="forum-section">
-    <div th:each="user : ${users}">
-            <h2 th:text="${user.getUsername()}">user: </h2>
-            <div th:object="${forum}">
-                <h3 th:text="${forum.title}"></h3>
-                <p th:text="${forum.body}"></p>
-            </div>
-            <!-- Add more forum posts here -->
-        </div>
+    <div th:each="forum: ${forums}">
+        <h2 th:text="${forum.user.username}">user: </h2>
+        <h3 th:text="${forum.title}"></h3>
+        <p th:text="${forum.body}"></p>
+        <!-- Add more forum posts here -->
     </div>
 </div>
 </body>

@@ -33,7 +33,7 @@ public class User {
     private List<Forum> forums = new ArrayList<>();
 
     @OneToMany()
-    private Profile profile;
+    private List<AboutMe> aboutMe;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_channels",

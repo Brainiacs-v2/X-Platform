@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Cross Platform</title>
@@ -13,18 +14,18 @@
 <div class="container text-center">
     <div class="row">
         <div class="col">
-            <form th:method="get" th:action="@{/crossplatform}">
-                <button>cross platform</button>
-            </form>
+           <form th:method="post" th:action="@{/crossplatform}">
+                <button name="crossplatform">cross platform</button>
+           </form>
         </div>
         <div class="col">
             <form th:method="post" th:action="@{/login}">
-                <button>login</button>
+                <button name="login">login</button>
             </form>
         </div>
         <div class="col">
             <form th:method="post" th:action="@{/about}">
-                <button>about</button>
+                <button name="about">about</button>
             </form>
         </div>
     </div>
@@ -34,7 +35,7 @@
     </div>
     <!--    body-->
     <div class="col">
-        <form th:method="get" th:action="@{/register}">
+        <form th:method="post" th:action="@{/register-page}">
             <button>register</button>
         </form>
     </div>
@@ -43,7 +44,7 @@
     <div class="row">
         <div class="col">
             <form th:method="post" th:action="@{/contact}">
-                <button>contact</button>
+                <button name="contact">contact</button>
             </form>
         </div>
     </div>

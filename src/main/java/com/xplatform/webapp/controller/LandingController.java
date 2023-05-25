@@ -1,28 +1,40 @@
 package com.xplatform.webapp.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LandingController {
+
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "about";
+    }
+
+    @GetMapping("/contact")
+    public String contactPage() {
+        return "contact";
+    }
+
+    //POST MAPPING
     @PostMapping("/crossplatform")
-    public String handleCrossPlatform() {
-        return "/landing/landing";
+    public String crossPlatformBtn(){
+        return "landing";
     }
-
-    @PostMapping("/login")
-    public String handleLoginBtn() {
-        return "/landing/login";
-    }
-
     @PostMapping("/about")
-    public String handleAboutBtn() {
-        return "/landing/about";
+    public String aboutBtn(){
+        return "about";
     }
-
     @PostMapping("/contact")
-    public String handleContactBtn() {
-        return "/landing/contact";
+    public String contactBtn(){
+        return "contact";
+    }
+    @PostMapping("/register-page")
+    public String registerBtn(){
+        return "register";
     }
 
 }
+
+

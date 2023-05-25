@@ -3,8 +3,8 @@ package com.xplatform.webapp.bean;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "posts")
-public class Post {
+@Table(name = "about_me")
+public class AboutMe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -17,29 +17,29 @@ public class Post {
     @OneToOne
     private User user;
 
-    public Post(long id, String title, String body) {
+    public AboutMe(long id, String title, String body) {
         this.id = id;
         this.title = title;
         this.body = body;
     }
 
-    public Post(String title, String body) {
+    public AboutMe(String title, String body) {
         this.title = title;
         this.body = body;
     }
-    public Post(String title, String body, User user) {
+    public AboutMe(String title, String body, User user) {
         this.title = title;
         this.body = body;
         this.user = user;
     }
 
-    public Post(long id, String title, String body, User user) {
+    public AboutMe(long id, String title, String body, User user) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.user = user;
     }
-    public Post() {
+    public AboutMe() {
 
     }
 
