@@ -51,6 +51,16 @@
     </style>
 </head>
 <body>
+<div>
+    <form th:action="@{/logout}" th:method="post">
+        <button class="btn btn-outline-dark">Logout</button>
+    </form>
+</div><div>
+    <form th:action="@{/edit-profile}" th:method="post">
+        <button class="btn btn-outline-dark">Edit Profile</button>
+    </form>
+</div>
+
 <div sec:authorize="isAuthenticated()">
     <!--    <span sec:authentication="name"></span>-->
     <h1 class="authorized text center" id="authorized"> Welcome, <span sec:authentication="name"></span></h1>
@@ -102,11 +112,10 @@
 <h2>Forum</h2>
 <div class="forum-section">
     <div th:each="user : ${users}">
-        <div th:if="${user.getRole().getId() == 3}">
             <h2 th:text="${user.getUsername()}">user: </h2>
-            <div th:object="${post}">
-                <h3 th:text="${post.title}"></h3>
-                <p th:text="${post.body}"></p>
+            <div th:object="${forum}">
+                <h3 th:text="${forum.title}"></h3>
+                <p th:text="${forum.body}"></p>
             </div>
             <!-- Add more forum posts here -->
         </div>
