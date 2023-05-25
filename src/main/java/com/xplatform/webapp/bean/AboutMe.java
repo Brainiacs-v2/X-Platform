@@ -3,7 +3,7 @@ package com.xplatform.webapp.bean;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "posts")
+@Table(name = "aboutMe")
 public class AboutMe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

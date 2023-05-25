@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6" lang="en">
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Edit Profile</title>
@@ -83,12 +84,13 @@
     </p>
 
     <h2>About Me</h2>
-    <form th:method="POST" th:action="@{/update-ahout-me}">
-        <label>Content:</label>
-        <label>
-            <input class="m-2" type="text" name="about-me" value="About Me">
-        </label>
-    </form>
+<form th:action="@{/about/edit}" method="post" th:object="${aboutMe}">
+    <label>Title:</label>
+    <input class="m-2" type="text" th:field="*{title}"  /><br>
+    <label>Content:</label>
+    <textarea class="m-2" th:field="*{body}"></textarea><br>
+    <input type="submit" value="Update"/>
+</form>
         <!--Steam API will go here-->
         <h2>Currently Playing</h2>
         <ul class="liked-items">

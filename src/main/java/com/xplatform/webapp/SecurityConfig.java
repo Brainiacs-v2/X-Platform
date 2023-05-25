@@ -46,23 +46,25 @@ public class SecurityConfig {
 
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/",
+                .requestMatchers(
+                        "/",
                         "/font/**",
                         "/viewed/**",
-                        "landing",
-                        "login",
-                        "register",
-                        "landing/landing",
-                        "crossplatform",
-                        "edit-profile",
-                        "profile-create",
-                        "profile",
-                        "about",
-                        "contact").permitAll()
+                        "/landing",
+                        "/login",
+                        "/register",
+                        "/landing/landing",
+                        "/crossplatform",
+                        "/edit-profile",
+                        "/profile-create",
+                        "/profile",
+                        "/about",
+                        "/contact",
+                        "profile").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/profile")
+                .defaultSuccessUrl("/profile", true)
                 .permitAll()
                 .and()
                 .logout()
