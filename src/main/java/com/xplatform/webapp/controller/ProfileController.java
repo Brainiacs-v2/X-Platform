@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/profile")
 public class ProfileController {
 
     private final UserRepository userRepository;
@@ -25,22 +24,12 @@ public class ProfileController {
 
     @GetMapping("/edit-profile")
     public String showEditProfileForm(Model model) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        userRepository.save(user);
-        // Retrieve the current user's profile from the repository
-        // and pass it to the view for pre-populating the form
-        // replace "getCurrentUser()" with actual logic
-        AboutMe aboutMe = aboutMeRepository.findByUser(getCurrentUser());
-        model.addAttribute("aboutMe", aboutMe);
         return "profile-create";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/edit-profile")
     public String handleEditProfileForm(@ModelAttribute("aboutMe") AboutMe aboutMe) {
-        // Save the updated profile to the repository
-        aboutMeRepository.save(aboutMe);
-        // Redirect to the profile page or a success page
-        return "redirect:/profile";
+        return "redirect:/profile-create";
     }
 
 
